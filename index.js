@@ -33,9 +33,11 @@ app.post("/entries", (req, res) => {
 });
 
 const sendMailToMe = (name, email, message) => {
+  let name = name;
+  let email = email;
+  let message = message;
   let transporter = nodemailer.createTransport({
     service: "gmail",
-
     auth: {
       user: process.env.EMAIL,
       pass: process.env.PASSWORD,
@@ -48,7 +50,7 @@ const sendMailToMe = (name, email, message) => {
     to: "yadneshkhode@gmail.com,yadneshk71@gmail.com", //list of receivers
     subject: `HIRING THROUGH YOUR PORTFOLIO - ${name}`, // Subject line
     text: message, // plain text body
-    html: `<b>Hello my name is ${name} and Email id to contact me is ${email}</b>`, // html body
+    html: `<b>Hello my name is ${name} and Email id to contact me is ${email}</b> and my message = ${message}`, // html body
   });
 };
 
