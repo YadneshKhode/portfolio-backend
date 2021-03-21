@@ -23,19 +23,16 @@ app.get("/entries", (_, res) => {
 app.post("/entries", (req, res) => {
   console.log("Data received - ", req.body);
   entries.putEntry(req.body);
-  const hiringentity = entries.getEntries();
-  const name = hiringentity.name;
-  const email = hiringentity.email;
-  const message = hiringentity.message;
-  sendMailToMe(name, email, message);
+  sendMailToMe();
   console.log("Stored successfully!");
   res.sendStatus(200);
 });
 
-const sendMailToMe = (name, email, message) => {
-  let name = name;
-  let email = email;
-  let message = message;
+const sendMailToMe = () => {
+  const hiringentity = entries.getEntries();
+  const name = hiringentity.name;
+  const email = hiringentity.email;
+  const message = hiringentity.message;
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
