@@ -31,8 +31,11 @@ app.post("/entries", (req, res) => {
 const sendMailToMe = () => {
   const hiringentity = entries.getEntries();
   const name = hiringentity.name;
+  console.log(name);
   const email = hiringentity.email;
+  console.log(email);
   const message = hiringentity.message;
+  console.log(message);
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
