@@ -17,15 +17,17 @@ app.get("/", (_, res) => {
   res.send("Hello From Backend");
 });
 app.get("/entries", (_, res) => {
+  const hiringentity = entries.getEntries();
   res.json(hiringentity);
 });
 
 app.post("/entries", (req, res) => {
   console.log("Data received - ", req.body);
   entries.putEntry(req.body);
-  // sendMailToMe();
+  sendMailToMe();
+  const hiringentity = entries.getEntries();
   console.log("Stored successfully!");
-  res.sendStatus(200);
+  res.send(hiringentity,200);
 });
 
 const sendMailToMe = () => {
