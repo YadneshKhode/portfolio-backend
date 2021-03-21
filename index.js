@@ -23,7 +23,7 @@ app.get("/entries", (_, res) => {
 app.post("/entries", (req, res) => {
   console.log("Data received - ", req.body);
   entries.putEntry(req.body);
-  sendMailToMe();
+  // sendMailToMe();
   console.log("Stored successfully!");
   res.sendStatus(200);
 });
