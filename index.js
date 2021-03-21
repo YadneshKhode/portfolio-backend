@@ -30,6 +30,7 @@ app.post("/entries", (req, res) => {
 
 const sendMailToMe = () => {
   const hiringentity = entries.getEntries();
+  console.log(hiringentity);
   const name = hiringentity.name;
   console.log(name);
   const email = hiringentity.email;
