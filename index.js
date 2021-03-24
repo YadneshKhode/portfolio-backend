@@ -35,7 +35,7 @@ app.post("/entries", (req, res) => {
     from: "hiringthroughportfolio001@gmail.com", // sender address
     to: "yadneshkhode@gmail.com,yadneshk71@gmail.com", //list of receivers
     subject: `HIRING THROUGH YOUR PORTFOLIO - ${req.body.name}`, // Subject line
-    text: message, // plain text body
+    text: req.body.message, // plain text body
     html: `<b>Hello my name is ${req.body.name} and Email id to contact me is ${req.body.email}</b> and my message = ${req.body.message}`, // html body
   });
 
